@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Tride</string>
+    <string name="login">login</string>
+    <string name="end_time">end Time</string>
+</resources>

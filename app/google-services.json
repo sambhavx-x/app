@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "931107141916",
+    "project_id": "tride-66c25",
+    "storage_bucket": "tride-66c25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931107141916:android:a506f5becf77cd901662d9",
+        "android_client_info": {
+          "package_name": "com.example.tride"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931107141916-s5s8r8mjum76chcj5j1gf2b4b5ien861.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmtQXnss-4LEFFwYUlO0VkG11StshKp3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931107141916-gvm03tfad0mk7sdnt9p6fe6ejb8bf2t7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

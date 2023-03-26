@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:background="#17191f"
+    tools:context=".MainActivity">
+
+
+<!--    <EditText-->
+<!--        android:id="@+id/Date"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:ems="10"-->
+<!--        android:inputType="date"-->
+<!--        />-->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="300dp"
+        android:gravity="center_horizontal"
+        android:text="SIGN IN"
+        android:textColor="#e3e4e4"
+        android:textSize="40dp"
+         />
+
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/signIn"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginVertical="400dp"-->
+<!--        android:text="Sign in with Google account"-->
+<!--        android:backgroundTint="@null"-->
+<!--        android:background="@drawable/gradient"-->
+<!--        android:textAllCaps="false"-->
+<!--        app:cornerRadius="20dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="450dp"
+    android:background="@drawable/gradient"
+    android:id="@+id/sign_in"
+        android:text="Sign in with Goggle"
+        android:textAllCaps="false"
+        android:width="190dp"
+        />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginVertical="28dp"
+       android:layout_marginLeft="290dp"
+
+        android:background="@drawable/blackg"
+
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+         />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+
+
+
+        android:layout_marginStart="-50dp"
+
+        android:layout_marginTop="-50dp"
+        android:layout_marginEnd="-50dp"
+        android:layout_marginBottom="-50dp"
+        android:background="@drawable/gradient"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+
+
+
+    <!--    <TextView-->
+<!--    android:id="@+id/DNT"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="TextView"-->
+<!--    android:layout_below="@id/Date"-->
+<!--    />-->
+<!--    <TextView-->
+<!--        android:id="@+id/DNT2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="TextView"-->
+<!--        android:layout_below="@id/DNT"-->
+<!--        />-->
+</RelativeLayout>
