@@ -43,15 +43,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Homescreen extends AppCompatActivity {
     EditText date;
     String emailid,f,t;
-    String FromTime,ToTime,FDate,fromtime,totime;
+    String d,FromTime,ToTime,FDate,fromtime,totime;
 
     @SuppressLint("SimpleDateFormat")
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+
     EditText fromTime,toTime;
     AppCompatButton logout,submit;
 
     final Calendar c=Calendar.getInstance();
-    TextView name,check;
+    TextView name,check,text;
     String api="https://us-central1-tride-66c25.cloudfunctions.net/helloWorld";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,8 +128,9 @@ public class Homescreen extends AppCompatActivity {
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
                                 // on below line we are setting date to our edit text.
-                                date.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                date.setText(year + "-" +"0"+ (monthOfYear + 1)+ "-" + dayOfMonth   );
                                 FDate =date.getText().toString();
+
                             }
                         },
                         // on below line we are passing year,
@@ -228,6 +230,10 @@ public class Homescreen extends AppCompatActivity {
                   f= String.valueOf(d1.getTime());
                     Date d2  = sdf.parse(totime);
                     t=String.valueOf(d2.getTime());
+                   d=FDate.concat("T00:00:00.022+00:00");
+
+
+
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -235,7 +241,7 @@ public class Homescreen extends AppCompatActivity {
 
                 ////////////////
                 // calling a method to post the data and passing our name and job.
-                postDataUsingVolley(emailid.toString(),f,t);
+                postDataUsingVolley(emailid.toString(),f,t,d);
             }
 
         });
@@ -248,7 +254,7 @@ public class Homescreen extends AppCompatActivity {
 
 
         ///////////////////sending api request//////////
-        private void postDataUsingVolley(String emailid,String f, String t ){
+        private void postDataUsingVolley(String emailid,String f, String t ,String d){
             // url to post our data
             String url = "https://us-central1-tride-66c25.cloudfunctions.net/helloWorld/travel/post";
 
@@ -267,8 +273,7 @@ public class Homescreen extends AppCompatActivity {
                     // hiding our progress bar
                     // and setting data to edit text as empty
 
-                    Intent intent=new Intent(getApplicationContext(),Match.class);
-                    startActivity(intent);
+
 
                     // on below line we are displaying a success toast message.
                     Toast.makeText(Homescreen.this, "Data added to API", Toast.LENGTH_SHORT).show();
@@ -306,7 +311,7 @@ public class Homescreen extends AppCompatActivity {
                     params.put("userid", emailid);
                     params.put("fromTime", f);
                     params.put("toTime", t);
-
+                  params.put("date",d);
 
 
                     // at last we are
