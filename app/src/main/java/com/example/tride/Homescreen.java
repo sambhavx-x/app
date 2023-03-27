@@ -251,31 +251,20 @@ public class Homescreen extends AppCompatActivity {
             // creating a new variable for our request queue
             RequestQueue queue = Volley.newRequestQueue(Homescreen.this);
 
-            // on below line we are calling a string
-            // request method to post the data to our API
-            // in this we are calling a post method.
+
             StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    // inside on response method we are
-                    // hiding our progress bar
-                    // and setting data to edit text as empty
 
-
-
-                    // on below line we are displaying a success toast message.
                     Toast.makeText(Homescreen.this, "Data added to API", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(getApplicationContext(),Match.class);
+                    startActivity(intent);
                     try {
-                        // on below line we are parsing the response
-                        // to json object to extract data from it.
+
                         JSONObject respObj = new JSONObject(response);
 
-                        // below are the strings which we
-                        // extract from our json object.
-                        String name = respObj.getString("name");
 
 
-                        // on below line we are setting this string s to our text view.
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -299,7 +288,7 @@ public class Homescreen extends AppCompatActivity {
                     params.put("userid", emailid);
                     params.put("fromTime", f);
                     params.put("toTime", t);
-
+                    
 
 
                     // at last we are
