@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -211,6 +212,11 @@ public class Homescreen extends AppCompatActivity {
                     Toast.makeText(Homescreen.this, "Please enter both the values", Toast.LENGTH_SHORT).show();
                     return;
                 }
+//                if(fromtime.isEmpty() || totime.isEmpty() ||  FDate.isEmpty() ){
+//                    Dialog dialog = new Dialog(Homescreen.this);
+//                    dialog.setContentView(R.layout.popup);
+//                    dialog.show();
+//                }
                 ///////////////final time
 
                 check =findViewById(R.id.check);
@@ -255,6 +261,7 @@ public class Homescreen extends AppCompatActivity {
             StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+
 
                     Toast.makeText(Homescreen.this, "Data added to API", Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent(getApplicationContext(),Match.class);
