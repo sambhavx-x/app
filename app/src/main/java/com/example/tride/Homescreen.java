@@ -231,16 +231,16 @@ public class Homescreen extends AppCompatActivity {
                     Date d2  = sdf.parse(totime);
                     t=String.valueOf(d2.getTime());
                    d=FDate.concat("T00:00:00.022+00:00");
-
+                    text=findViewById(R.id.text);
+//                    text.setText(d);
 
 
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
-
                 ////////////////
-                // calling a method to post the data and passing our name and job.
+
                 postDataUsingVolley(emailid.toString(),f,t,d);
             }
 
@@ -255,43 +255,37 @@ public class Homescreen extends AppCompatActivity {
 
         ///////////////////sending api request//////////
         private void postDataUsingVolley(String emailid,String f, String t ,String d){
-            // url to post our data
+
             String url = "https://us-central1-tride-66c25.cloudfunctions.net/helloWorld/travel/post";
 
 
 
-            // creating a new variable for our request queue
+
             RequestQueue queue = Volley.newRequestQueue(Homescreen.this);
 
-            // on below line we are calling a string
-            // request method to post the data to our API
-            // in this we are calling a post method.
+
             StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    // inside on response method we are
-                    // hiding our progress bar
-                    // and setting data to edit text as empty
+
+                    Intent intent=new Intent(getApplicationContext(),Match.class);
+                    startActivity(intent);
 
 
 
-                    // on below line we are displaying a success toast message.
                     Toast.makeText(Homescreen.this, "Data added to API", Toast.LENGTH_SHORT).show();
                     try {
-                        // on below line we are parsing the response
-                        // to json object to extract data from it.
-                        JSONObject respObj = new JSONObject(response);
 
-                        // below are the strings which we
-                        // extract from our json object.
+                        JSONObject respObj = new JSONObject(response);
+                         String res = respObj.toString();
+
                         String name = respObj.getString("name");
 
-
-                        // on below line we are setting this string s to our text view.
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
                 }
             }, new com.android.volley.Response.ErrorListener() {
                 @Override
@@ -302,8 +296,7 @@ public class Homescreen extends AppCompatActivity {
             }) {
                 @Override
                 protected Map<String, String> getParams() {
-                    // below line we are creating a map for
-                    // storing our values in key and value pair.
+
                     Map<String, String> params = new HashMap<String, String>();
 
                     // on below line we are passing our key
@@ -314,13 +307,11 @@ public class Homescreen extends AppCompatActivity {
                   params.put("date",d);
 
 
-                    // at last we are
-                    // returning our params.
+
                     return params;
                 }
             };
-            // below line is to make
-            // a json object request.
+
             queue.add(request);
 
 

@@ -119,7 +119,7 @@
         android:id="@+id/check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="@dimen/_58sdp"
         android:layout_marginEnd="72dp"
         android:text="To"
         android:textColor="#f3f3f2"

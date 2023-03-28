@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".matched">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_height="228dp"
+        android:textSize="@dimen/_16sdp"
+        android:text="You are matched with"
+        android:layout_marginLeft="@dimen/_15sdp"
+        />
+
+    <TextView
+        android:layout_width="300dp"
+        android:id="@+id/matched_name"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:text="sambhav"
+        android:textSize="@dimen/_30sdp" />
+
+</FrameLayout>
