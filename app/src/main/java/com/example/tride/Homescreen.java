@@ -42,9 +42,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Homescreen extends AppCompatActivity {
     EditText date;
-    String emailid,f,t;
+    String emailid,f,t,uname;
     String d,FromTime,ToTime,FDate,fromtime,totime;
-
+    public static final String Em="something1";
+    public static final String Da="something2";
+    public static final String Ft="something3";
+    public static final String Tt="something4";
+    public static final String Un="something5";
     @SuppressLint("SimpleDateFormat")
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 
@@ -53,7 +57,7 @@ public class Homescreen extends AppCompatActivity {
 
     final Calendar c=Calendar.getInstance();
     TextView name,check,text;
-    String api="https://us-central1-tride-66c25.cloudfunctions.net/helloWorld";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +104,7 @@ public class Homescreen extends AppCompatActivity {
         GoogleSignInAccount signInAccount= GoogleSignIn.getLastSignedInAccount(this);
         if(signInAccount!=null){
             name.setText(signInAccount.getDisplayName());
+            uname=signInAccount.getDisplayName();
             emailid = signInAccount.getEmail();
         }
 
@@ -230,6 +235,10 @@ public class Homescreen extends AppCompatActivity {
                   f= String.valueOf(d1.getTime());
                     Date d2  = sdf.parse(totime);
                     t=String.valueOf(d2.getTime());
+//                    if(Integer.parseInt(t)<Integer.parseInt(f)){
+//                        int t1=Integer.parseInt(t)+86400000;
+//                        t=String.valueOf(t1);
+//                    }
                    d=FDate.concat("T00:00:00.022+00:00");
                     text=findViewById(R.id.text);
 //                    text.setText(d);
@@ -241,7 +250,7 @@ public class Homescreen extends AppCompatActivity {
 
                 ////////////////
 
-                postDataUsingVolley(emailid.toString(),f,t,d);
+                postDataUsingVolley(emailid.toString(),f,t,d,uname);
             }
 
         });
@@ -254,7 +263,7 @@ public class Homescreen extends AppCompatActivity {
 
 
         ///////////////////sending api request//////////
-        private void postDataUsingVolley(String emailid,String f, String t ,String d){
+        private void postDataUsingVolley(String emailid,String f, String t ,String d,String uname){
 
             String url = "https://us-central1-tride-66c25.cloudfunctions.net/helloWorld/travel/post";
 
@@ -269,11 +278,17 @@ public class Homescreen extends AppCompatActivity {
                 public void onResponse(String response) {
 
                     Intent intent=new Intent(getApplicationContext(),Match.class);
+                    intent.putExtra(Em,emailid);
+                    intent.putExtra(Da,d);
+                    intent.putExtra(Ft,f);
+                    intent.putExtra(Tt,t);
+                    intent.putExtra(Un,uname);
                     startActivity(intent);
 
 
 
-                    Toast.makeText(Homescreen.this, "Data added to API", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(Homescreen.this, "Data added to databse", Toast.LENGTH_SHORT).show();
                     try {
 
                         JSONObject respObj = new JSONObject(response);
@@ -305,6 +320,7 @@ public class Homescreen extends AppCompatActivity {
                     params.put("fromTime", f);
                     params.put("toTime", t);
                   params.put("date",d);
+                  params.put("uname",uname);
 
 
 

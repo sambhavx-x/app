@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class matched extends Fragment {
 
     TextView name;
-
+    String uname;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -21,6 +21,10 @@ public class matched extends Fragment {
         View view =inflater.inflate(R.layout.fragment_matched, container, false);
 
         name=view.findViewById(R.id.matched_name);
+        Bundle data = getArguments();
+        assert data != null;
+        uname = data.getString("uname");
+        name.setText(uname);
 
         return view;
 

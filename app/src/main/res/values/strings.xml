@@ -5,4 +5,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="matched">matched</string>
+    <string name="phonen_number">phonen number</string>
+    <string name="phone_number" />
+    <string name="enter_phone_no">Enter phone no.</string>
 </resources>

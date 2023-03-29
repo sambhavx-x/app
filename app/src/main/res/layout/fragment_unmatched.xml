@@ -10,6 +10,9 @@
         android:layout_width="match_parent"
         android:id="@+id/notfound"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:text="no match found" />
 
 </FrameLayout>
